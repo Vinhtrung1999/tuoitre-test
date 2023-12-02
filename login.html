@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập Tuổi Trẻ</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/33ad855007.js" crossorigin="anonymous"></script>   
+    <style>
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .shadow {
+          box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+
+        .login,
+        .create-account {
+            background-color: #fff;
+            border: none;
+            user-select: none;
+        }
+
+        .form {
+            width: 100%;
+            background-color: #EAEEF2;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+        }
+        
+        .error {
+            color:#D60710;
+            display: none;
+            padding-bottom: 20px;
+        }
+
+        .borderLog, 
+        .borderAcc {
+            border-top:2px solid #EAEEF2;
+        }
+
+        .active {
+            border-top:2px solid #D60710;
+        }
+
+        .footer h6 {
+            font-size: 12px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #464E5F;
+        }
+
+        .footer p {
+            font-size: 13px;
+            color: #565656 !important;
+            margin: 0;
+        }
+
+        .show-pwd-icon {
+            position: absolute;
+            right: 30px;
+            top: 10px;
+        }
+
+        @media only screen and (max-width: 46.1875em) {
+            .shadow {
+                box-shadow: none !important;
+         }
+        }
+    </style>
+</head>
+<body>
+   
+        <div class="container-fluid" style="background-color: #D60710">
+            <div class="w-100 py-2 text-center">
+                <img class="" src="https://sso.tuoitre.vn/images/logo.svg" alt="Logo">
+            </div>
+        </div>
+
+        <div class="container-fluid">
+             <div class="row mt-5">
+                <div class="col-lg-5 m-auto shadow">
+                   <div class="p-4">
+                    <div class="row pb-2">
+                        <div class="col-6 ps-5">
+                           <button type="button" class="ps-lg-5 fs-lg-5 fw-bold login">ĐĂNG NHẬP</button>
+                         </div>
+                         <div class="col-6">
+                            <button type="button" class="ps-lg-4 fs-lg-5 fw-bold create-account">TẠO TÀI KHOẢN</button>
+                         </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row">
+                           <div class="col-6 borderLog active"></div>
+                           <div class="col-6 borderAcc"></div>
+                        </div>
+                    </div>
+                    <!-- Phần nội dung -->
+                    <!-- ĐĂNG NHẬP -->
+                   <div class="content-login" style="padding-left: 11px; padding-right: 11px;">  
+                       <div class="row mt-5">
+                           <div class="col-lg-12">
+                                <input class="form form-log" type="text" placeholder="Nhập email hoặc số điện thoại" aria-label="default input example">
+                           </div>
+                           <div class="col-lg-12 mt-4 position-relative">
+                                <input class="form form-pass inputPassLogin" type="password" placeholder="Nhập mật khẩu" aria-label="default input example">
+                                <span class="show-pwd-icon">
+                                    <i id="showPasswordLogin" class="fa fa-fw fa-eye"></i>
+                                </span>
+                           </div>
+                           <div class="col-lg-12 error">
+                                <h6 style="font-size: 18px;">Email hoặc số điện thoại không đúng định dạng.</h6>
+                           </div>
+                           <div class="col-lg-12 py-4 w-100">
+                               <a href="">
+                                  <h6 style="font-size: 18px;">Bạn chưa có hoặc quên mật khẩu? Cài đặt lại mật khẩu qua email hoặc SMS.</h6>
+                               </a>
+                           </div>
+                           <div class="col-lg-12">
+                                <button type="button" class="btn bg-danger btn-lg w-100 text-white button">ĐĂNG NHẬP</button>
+                           </div>
+                           <div class="col-lg-12 text-center py-4">
+                                <h6 style="font-size: 18px;">Hoặc đăng nhập với tài khoản mạng xã hội</h6>
+                           </div>
+                           <div class="col-lg-12 text-center">   
+                                <div class="col-lg-4 m-auto">  
+                                  <img src="https://sso.tuoitre.vn/images/facebook.png">                       
+                                  <img src="https://sso.tuoitre.vn/images/Ellipse_2.png">
+                                </div>        
+                           </div>
+                       </div>    
+                   </div>
+                   <!-- TẠO TÀI KHOẢN -->
+                   <div class="content" style="padding-left: 11px; padding-right: 11px;">
+                        <div class="row mt-5">
+                            <div class="col-lg-12">
+                               <p>Đăng ký tài khoản báo Tuổi Trẻ để sử dụng đầy đủ tính năng của thành viên, nhận tin tức mới nhất trên các lĩnh vực và có cơ hội tham gia sớm các sự kiện báo Tuổi Trẻ tổ chức</p>
+                            </div>
+                            <div class="col-lg-12">
+                               <input class="form form-log" type="text" placeholder="Nhập email hoặc số điện thoại">
+                            </div>
+                            <div class="col-lg-12 mt-4 position-relative">
+                               <input class="form form-pass inputPassAcc" type="password" placeholder="Nhập mật khẩu" aria-label="default input example">
+                               <span class="show-pwd-icon">
+                                    <i id="showPasswordAcc" class="fa fa-fw fa-eye"></i>
+                                </span>
+                            </div>
+                            <div class="col-lg-12 d-flex gap-2 py-4">
+                                <div class="pt-2">
+                                    <h6>Mã xác thực:</h6>
+                                </div>
+                                <div class="pt-2">
+                                    <h6> <span class="value-1"></span> + <span class="value-2"></span>=</h6>
+                                </div>
+                                <div>
+                                    <input type="text" style="width:100px;height:50px;" class="form mb-2">
+                                </div>
+                            </div>
+                            <div class="col-lg-12 error">
+                                <h6 style="font-size: 18px;">Mã xác thực không đúng.</h6>
+                            </div>
+                            <div class="col-lg-12">
+                                <button type="button" class="btn bg-danger btn-lg w-100 text-white button">ĐĂNG KÝ</button>
+                           </div>
+                           <div class="col-lg-12 text-center py-4">
+                                <p>Hoặc đăng nhập với tài khoản mạng xã hội</hp>
+                           </div>
+                           <div class="col-lg-12 text-center">   
+                                <div class="col-lg-4 m-auto">  
+                                  <img src="https://sso.tuoitre.vn/images/facebook.png">                       
+                                  <img src="https://sso.tuoitre.vn/images/Ellipse_2.png">
+                                </div>        
+                           </div>
+                           <div class="col-lg-12 pt-3">
+                                <p class="text-center text-decoration-underline">Khi nhấn đăng ký bạn đã đồng ý các quy định của báo Tuổi Trẻ</p>
+                           </div>
+                        </div>
+                   </div>
+                </div>
+                </div>
+             </div>
+        </div> 
+
+        <div class="container mt-5">
+            <div class="d-lg-flex flex-row footer d-none d-lg-block">
+                <div class="p-2">
+                    <a href="">
+                        <h6>TRANG CHỦ</h6>
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <h6>MEDIA</h6>
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <h6>THỜI SỰ</h6>
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <h6>THẾ GIỚI</h6>
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <h6>PHÁP LUẬT</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>KINH DOANH</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>CÔNG NGHỆ</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>XE</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>DU LỊCH</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>NHỊP SỐNG TRẺ</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>VĂN HÓA</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>GIẢI TRÍ</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>THỂ THAO</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>GIÁO DỤC</h6>
+                    </a>
+                </div>
+                <div class="p-2 bd-highlight">
+                    <a href="">
+                        <h6>KHOA HỌC</h6>
+                    </a>
+                </div>
+              
+            </div>
+            <div class="d-lg-flex flex-row mb-3 footer d-none d-lg-block">
+                <div class="p-2">
+                    <a href="">
+                        <h6>SỨC KHỎE</h6>
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <h6>GIẢ THẬT</h6>
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <h6>BẠN ĐỌC</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="d-lg-flex flex-row mb-lg-3 gap-2 footer" style="border-top: 2px solid #E30E16;">
+                <div class="p-lg-2 pt-2">
+                   <p>Tổng biên tập: Lê Thế Chữ</p>
+                   <p>Giấy phép hoạt động báo điện tử tiếng Việt, tiếng Anh Số 561/GP-BTTTT, cấp ngày 25-11-2022.</p>
+                   <a href="">
+                    <h6>Thông tin tòa soạn - Thành Đoàn TP.HCM</h6>
+                   </a>
+                </div>
+                <div class="p-lg-2">
+                    <p>Địa chỉ: 60A Hoàng Văn Thụ, P.9, Q.Phú Nhuận, Tp. Hồ Chí Minh</p>
+                    <p>Hotline: 0918.033.133 - Email: tto@tuoitre.com.vn</p>
+                    <p>Phòng Quảng Cáo Báo Tuổi Trẻ: 028.39974848</p>
+                </div>
+                <div class="d-flex p-lg-2">
+                    <a href="">
+                        <h6>Liên Hệ Quảng Cáo<span class="d-lg-none px-2">| </span></h6>
+                    </a>
+                    <a href="">
+                        <h6>Chính Sách Bảo Mật<span class="d-lg-none px-2">| </span></h6>
+                    </a>
+                    <a href="">
+                        <h6>Liên Hệ Góp Ý</h6>
+                    </a>
+                </div>
+            </div>
+            <div class="d-lg-flex flex-row mb-3 mx-2 gap-4 border-top d-none d-lg-block">
+                <div class="p-2">
+                    <a href="">
+                       <img src="https://sso.tuoitre.vn/images/ftt.png" alt="">
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <img src="https://sso.tuoitre.vn/images/ftttv.svg" alt="">
+                     </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <img src="https://sso.tuoitre.vn/images/fttpodcast.svg" alt="">
+                     </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <img src="https://sso.tuoitre.vn/images/fttc.svg" alt="">
+                     </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <img src="https://sso.tuoitre.vn/images/fttct.svg" alt="">
+                     </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <img src="https://sso.tuoitre.vn/images/fttn.svg" alt="">
+                     </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <img src="https://sso.tuoitre.vn/images/fttmedia.svg" alt="">
+                     </a>
+                </div>
+             
+                
+            </div>
+            <div class="d-lg-flex flex-row mb-3 mx-2 border-bottom d-none d-lg-block">
+                <div class="p-2">
+                    <a href="">
+                        <img src="https://sso.tuoitre.vn/images/fttrv.svg" alt="">
+                     </a>
+                </div>
+                <div class="p-2">
+                    <a href="">
+                        <img src="https://sso.tuoitre.vn/images/fmuctim.svg" alt="">
+                     </a>
+                </div>
+            </div>
+            <div class="d-flex footer">
+                <div class="p-lg-2 flex-grow-1 bd-highlight">
+                    <p>© Copyright 2023 TuoiTre Online, All rights reserved ® Tuổi Trẻ Online giữ bản quyền nội dung trên website này</p>
+                </div>
+                <div class="p-lg-2 bd-highlight d-none d-lg-block">
+                    <span><i class="bi bi-youtube"></i></span>
+                    <span><i class="bi bi-twitter"></i></span>
+                    <span><i class="bi bi-facebook"></i></span>
+                </div>
+            </div>
+        </div>
+
+    
+
+    
+</body>
+<script>
+    let btnLogin = document.querySelector('.login');
+    let btnAccount = document.querySelector('.create-account');
+    let contentLog = document.querySelector('.content-login');
+    let contentAcc = document.querySelector('.content');
+
+    // Thiết lập lỗi bên tạo tài khoản
+    let btnSubmitLog = contentLog.querySelector('.button');
+    let btnSubmitAcc = contentAcc.querySelector('.button');
+    let formLog = document.querySelector('.form-log');
+    let formPass = document.querySelector('.form-pass');
+    let errorLogin = contentLog.querySelector('.error');
+    let errorAcc = contentAcc.querySelector('.error');
+
+    let borderAcc = document.querySelector('.borderAcc');
+    let borderLog = document.querySelector('.borderLog');
+
+    // Eye
+    let inputPassLogin = document.querySelector('.inputPassLogin');
+    let showPasswordLogin = document.getElementById('showPasswordLogin');
+    let inputPassAcc = document.querySelector('.inputPassAcc');
+    let showPasswordAcc = document.getElementById('showPasswordAcc');
+
+
+    // Mã xác lập
+    let value1 = document.querySelector('.value-1');
+    let value2 = document.querySelector('.value-2');
+
+    contentAcc.style.display = 'none';
+    btnAccount.addEventListener('click', () => {
+        contentAcc.style.display = 'block';
+        contentLog.style.display = 'none';
+        borderAcc.classList.add('active');
+        borderLog.classList.remove('active');
+    });
+
+    btnLogin.addEventListener('click', () => {
+        contentLog.style.display = 'block';
+        contentAcc.style.display = 'none';
+        borderLog.classList.add('active');
+        borderAcc.classList.remove('active');
+    });
+
+    btnSubmitLog.addEventListener('click', () => {
+        if(formLog.value == '' || formPass.value == '') {
+            errorLogin.style.display = 'block';
+        }
+    });
+
+    btnSubmitAcc.addEventListener('click', () => {
+        if(formLog.value == '' || formPass.value == '') {
+            errorAcc.style.display = 'block';
+        }
+    })
+
+    showPasswordLogin.addEventListener('click', () => {
+       if(inputPassLogin.type === 'password') {
+           inputPassLogin.type = 'text';
+           showPasswordLogin.classList.remove('fa-eye');
+           showPasswordLogin.classList.add('fa-eye-slash');
+       } else {
+           inputPassLogin.type = 'password';
+           showPasswordLogin.classList.add('fa-eye');
+           showPasswordLogin.classList.remove('fa-eye-slash');
+       }
+    })
+
+    showPasswordAcc.addEventListener('click', () => {
+       if(inputPassAcc.type === 'password') {
+           inputPassAcc.type = 'text';
+           showPasswordAcc.classList.remove('fa-eye');
+           showPasswordAcc.classList.add('fa-eye-slash');
+       } else {
+           inputPassAcc.type = 'password';
+           showPasswordAcc.classList.add('fa-eye');
+           showPasswordAcc.classList.remove('fa-eye-slash');
+       }
+    })
+
+    value1.innerHTML = Math.floor(Math.random() * 11);
+    value2.innerHTML = Math.floor(Math.random() * 11);
+
+</script>
+</html>

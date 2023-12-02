@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slider</title>
+</head>
+<style>
+	.list ul{
+		list-style-type: none;
+		
+	}
+
+	.list li{
+		display: inline;
+
+	}
+
+	.list a{
+        cursor: pointer;
+        height: 12px;
+        width: 12px;
+        margin: 0 2px;
+        background-color: #bbb;
+        border-radius: 50%;
+        display: inline-block;
+        transition: background-color 0.6s ease;
+	}
+
+	.slider{
+		display: flex;
+		width: 246px;
+		overflow-x: auto;
+		cursor: grab;
+	}
+    .slider img {
+            width: 246px !important;
+            height: 252px !important;
+        }
+	.slider div{
+		background-color: rgb(255, 255, 255);
+		margin-right: 10px;
+		color: #565656;
+		text-align: center;
+		font-size: 15px;
+		user-select: none;
+	}
+
+	.slider::-webkit-scrollbar{
+        overflow-x: hidden;
+	}
+
+
+</style>
+<body>
+    <div>
+        <h3>Tham gia thành viên
+            Tuổi Trẻ Sao để trải nghiệm
+            nhiều giá trị riêng biệt
+        </h3>
+    </div>
+    <div class="slide">
+        <div id="slider" class="slider">
+          
+    <div id="dot1">
+        <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgnoads.png" alt="" />
+        <p class="des">Tất cả các bài viết và video không có quảng cáo</p>
+    </div>
+    <div id="dot2">
+        <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgtuvansk.png" alt="" />
+        <p class="des">Cùng các bác sĩ giải đáp những vấn đề liên quan đến sức khỏe, làm đẹp</p>
+    </div>
+    <div id="dot3">
+        <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimglive.png" alt="" />
+        <p class="des">Thường xuyên trực tiếp các sự kiện nóng trên cả nước</p>
+    </div>
+    <div id="dot4">
+        <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgphapluat.png" alt="" />
+        <p class="des">Tư vấn những vấn đề liên quan pháp luật mà bạn đọc quan tâm</p>
+    </div>
+    <div id="dot5">
+        <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgdocbaoin.png" alt="" />
+        <p class="des">Đọc báo in bằng những trình duyệt hiện đại</p>
+    </div>
+        </div>
+        <div class="list">
+            <ul>
+                <li><a href="#dot1"></a></li>
+                <li><a href="#dot2"></a></li>
+                <li><a href="#dot3"></a></li>
+                <li><a href="#dot4"></a></li>
+                <li><a href="#dot5"></a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+<script>
+    let slider = document.getElementById('slider')
+    let pos = {left: 0, x: 0}
+    let flag = false
+    slider.addEventListener('mousedown', (e) => {
+        flag = true
+        slider.style.cursor = "grabbing"
+        pos = {
+            left: slider.scrollLeft,
+            x: e.clientX
+        }
+        slider.addEventListener('mouseup', mouseUp)
+        slider.addEventListener('mousemove', mouseMove)
+    })
+
+    let mouseUp = (e) => {
+        flag = false
+        slider.style.cursor = 'grab'
+    }
+
+    let mouseMove = (e) => {
+        if(flag){
+            let dx = e.clientX - pos.x
+            slider.scrollLeft = pos.left - dx
+        }
+    }
+
+
+</script>
+
+</html>

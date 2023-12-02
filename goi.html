@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tuổi Trể Sao - Tin mới nhất, tin nhanh, tin nóng</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/33ad855007.js" crossorigin="anonymous"></script> 
+    <style>
+        * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        a {
+           color: #666666; 
+        }
+
+        .bi-search,
+        .bi-person-circle {
+            width: 24px;
+            height: 24px;
+            color: #666666;
+        }
+
+        .header {    
+            box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.10) !important;
+        }
+
+        .header .header-icon {
+            display: none;
+        }
+
+        .main-content {
+            padding: 0px 90px;
+        }
+
+        .box {
+          background-color: rgb(8, 168, 34);
+          color: #fff;
+          border-radius: 4px 0px;
+          left: 0;
+          top: 0;
+          padding: 3px 6px;
+          font-size: 13px;
+        }
+
+        .main-content p {
+           color: #666666;
+        }
+
+        .main-content-box,
+        .main-content-box2 {
+            width: 33.33%;
+            cursor: pointer;
+        }
+
+        .main-content-bottom {
+            border-right: 1px solid #e5e5e5;
+        }
+
+        .main-content-box-click,
+        .main-content-box-click2 {
+            color: #fff;
+            background-color: #5580bf;
+            border-radius: 0px 4px 0px 12px;
+            right: 0;
+            top: 0;
+            padding: 3px 6px;
+            font-size: 13px;
+            display: none; 
+            cursor: pointer;
+        }
+
+        button {
+            background-color: #5580bf !important;
+            color: #fff !important;
+        }
+
+        .active,
+        .active2 {
+           background-color: #e7effa;
+        }
+        
+        .list ul{
+		   list-style-type: none;	
+	    }
+
+	   .list li{
+		  display: inline;
+          margin-left: 15px;
+	    }
+
+	   .list a{
+           cursor: pointer;
+           height: 12px;
+           width: 12px;
+           margin: 0 2px;
+           background-color: #bbb;
+           border-radius: 50%;
+           display: inline-block;
+           transition: background-color 0.6s ease;
+	    }
+
+	    .slider {
+		   display: flex;
+		   width: 246px;
+		   overflow-x: auto;
+		   cursor: grab;
+	    }
+
+        .slider img {
+            width: 246px !important;
+            height: 252px !important;
+        }
+
+	    .slider div{
+		   background-color: rgb(255, 255, 255);
+		   margin-right: 10px;
+		   color: #565656;
+		   text-align: center;
+		   font-size: 15px;
+		   user-select: none;
+	    }
+
+	    .slider::-webkit-scrollbar{
+           overflow-x: hidden;
+	    }
+
+        .footer {
+            padding: 0;
+        }
+
+        .footer a {
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: bold;
+            color: #222 !important;
+        }
+
+        .footer .sub-footer {
+            gap: 8px;
+            display: block;
+            border-bottom: 2px solid #ed1c24;
+        }
+
+        .footer p {
+            font-size: 12x;
+        }
+
+        .info-footer p {
+            margin: 0;
+            font-size: 13px !important;
+        }
+
+        .info-footer {
+            border-bottom: 1px dashed #e2e2e2;
+            margin-left: 2px;
+            margin-right: 1px;
+        }
+
+        .footer h6,
+        .info-footer-mob h6 {
+            font-size: 12px;
+        }
+        
+        .info-footer-mob p {
+            margin: 0;
+        }
+
+        @media only screen and (max-width: 992px) {
+            .header {    
+                box-shadow: none !important;
+                border-bottom: 1px solid #e2e2e2;
+            }
+
+            .header .header-icon {
+                display: block;
+            }
+
+            .header img {
+                width: 90px;
+                height: 28px;
+                margin-top: 7px;
+            }
+   
+            .main-content {
+                padding: 0px;
+            }
+ 
+            .main-content-box {
+               width: 100%;
+               margin-top: 15px;
+            }
+
+
+            .main-content-memb {
+                display: flex;
+                justify-content: space-between;
+                padding-right: 15px;
+            }
+            
+            .main-content-memb p {
+                font-size: 14px !important;
+            }
+
+            .main-content-box-title {
+               padding-top: 25px;
+            }
+
+            .main-content-bottom {
+                border-right: none;
+                margin-bottom: 0;
+            }
+            
+            button {
+                margin: 10px 0px;
+                background-color: #5580bf !important;
+            }
+
+           .info-footer {
+                flex-direction: column-reverse;
+            }
+        
+            .slider {
+                display: flex;            
+                gap: 25px;
+            }
+
+            .dots img {
+               width: 122px !important;
+               height: 125.5px !important;
+           }
+         
+           .slider{
+		       display: flex;
+		       width: 380px !important;
+		       overflow-x: auto;
+		       cursor: grab;
+	        }
+
+            .list {
+                margin: auto;
+            }
+
+          
+        }
+    
+    </style>
+</head>
+<body>
+   
+        <div class="container-fluid pt-2 pb-1 header">
+            <div class="d-flex justify-content-between">
+                <div class="pt-2">
+                    <a href="" class="d-none d-lg-block">
+                        <svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.70711 12.2929C8.09763 12.6834 8.09763 13.3166 7.70711 13.7071C7.31658 14.0976 6.68342 14.0976 6.29289 13.7071L7.70711 12.2929ZM1 7L0.292893 7.70711C-0.0976311 7.31658 -0.0976311 6.68342 0.292893 6.29289L1 7ZM6.29289 0.292893C6.68342 -0.0976315 7.31658 -0.0976315 7.70711 0.292893C8.09763 0.683417 8.09763 1.31658 7.70711 1.70711L6.29289 0.292893ZM16 6C16.5523 6 17 6.44772 17 7C17 7.55228 16.5523 8 16 8V6ZM6.29289 13.7071L0.292893 7.70711L1.70711 6.29289L7.70711 12.2929L6.29289 13.7071ZM0.292893 6.29289L6.29289 0.292893L7.70711 1.70711L1.70711 7.70711L0.292893 6.29289ZM1 6H16V8H1V6Z" fill="#8F8F8F"></path>
+                        </svg>
+                    </a>
+                    <a href="" class="header-icon">
+                        <svg width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.70711 1.70711C8.09763 1.31658 8.09763 0.683417 7.70711 0.292893C7.31658 -0.0976311 6.68342 -0.0976311 6.29289 0.292893L7.70711 1.70711ZM1 7L0.292893 6.29289C-0.0976311 6.68342 -0.0976311 7.31658 0.292893 7.70711L1 7ZM6.29289 13.7071C6.68342 14.0976 7.31658 14.0976 7.70711 13.7071C8.09763 13.3166 8.09763 12.6834 7.70711 12.2929L6.29289 13.7071ZM6.29289 0.292893L0.292893 6.29289L1.70711 7.70711L7.70711 1.70711L6.29289 0.292893ZM0.292893 7.70711L6.29289 13.7071L7.70711 12.2929L1.70711 6.29289L0.292893 7.70711Z" fill="#8F8F8F"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div>
+                    <a href="">
+                        <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/logo_startto.svg" alt="Tuổi Trẻ Sao" width="165.38" height="50">
+                    </a>
+                </div>
+                <div class="pt-2 d-flex">
+                        <a href="" class="text-decoration-none ps-2 d-none d-lg-block">
+                            <i class="bi bi-search pe-2"></i>
+                        </a>
+                        <a href="">
+                            <i class="bi bi-person-circle"></i>
+                        </a>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container-lg border-bottom bi">
+            <div class="main-content">
+                <div class="row pt-5">
+                    <div class="col-lg-4">     
+                       <h3 class="fs-4 fw-bold" style="color: #222;">Tham gia thành viên
+                        Tuổi Trẻ Sao để trải nghiệm
+                        nhiều giá trị riêng biệt
+                       </h3>
+                        <div class="slide d-none d-lg-block">
+                            <div id="slider" class="slider">    
+                               <div id="dot1">
+                                <div>
+                                    <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgnoads.png" alt="" />
+                                </div>
+                                <div>
+                                    <p class="des">Tất cả các bài viết và video không có quảng cáo</p>
+                                </div>               
+                               </div>
+                               <div id="dot2">
+                                <div>
+                                    <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgtuvansk.png" alt="" />
+                                </div>
+                                <div>
+                                   <p class="des">Cùng các bác sĩ giải đáp những vấn đề liên quan đến sức khỏe, làm đẹp</p>
+                                </div>
+                               </div>
+                               <div id="dot3">
+                                <div>
+                                    <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimglive.png" alt="" />
+                                </div>
+                                <div> 
+                                    <p class="des">Thường xuyên trực tiếp các sự kiện nóng trên cả nước</p>
+                                </div>
+                               </div>
+                               <div id="dot4">
+                                <div>
+                                    <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgphapluat.png" alt="" />
+                                </div>
+                                <div>
+                                    <p class="des">Tư vấn những vấn đề liên quan pháp luật mà bạn đọc quan tâm</p>
+                                </div>
+                               </div>
+                                <div id="dot5">
+                                <div>
+                                    <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgdocbaoin.png" alt="" />
+                                </div>
+                                <div>
+                                    <p class="des">Đọc báo in bằng những trình duyệt hiện đại</p>
+                                </div>
+                               </div>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                   <li><a href="#dot1"></a></li>
+                                    <li><a href="#dot2"></a></li>
+                                    <li><a href="#dot3"></a></li>
+                                    <li><a href="#dot4"></a></li>
+                                    <li><a href="#dot5"></a></li>
+                                </ul>
+                            </div>
+                        </div>                  
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <h4>Gói thành viên Tuổi Trẻ Sao</h4>
+                            <p>Phiên bản Tuổi Trẻ Sao không có quảng cáo hiển thị và nhiều giá trị riêng biệt</p>
+                            <div class="col-12 d-lg-flex flex-lg-row gap-3">                
+                               <div class="border rounded-3 position-relative main-content-box">
+                                   <div class="position-absolute main-content-box-click">
+                                       <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.6665 3.9974L4.58317 6.91406L10.4165 1.08073" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                   </div>
+                                   <div class="pt-4 pb-2 ps-3 main-content-memb">
+                                        <div>  
+                                            <div class="fs-6 fw-bold">Gói 1 tháng</div>
+                                            <div class="fs-6 fw-bold">30 ngày</div>
+                                        </div>
+                                        <div class="">
+                                            <div>
+                                                <h4 class="pt-2">28.500đ</h4>
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <div>
+                                                    <p class="fs-5 text-decoration-line-through">30.000đ</p>
+                                                </div>
+                                                 <div>
+                                                     <p  class="fs-5">-5%</p>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                   </div>
+                               </div>
+                                <div class="border rounded-3 position-relative main-content-box">
+                                    <div class="box position-absolute">
+                                        Gói khuyến nghị
+                                    </div>
+                                    <div class="position-absolute main-content-box-click">
+                                       <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.6665 3.9974L4.58317 6.91406L10.4165 1.08073" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                   </div>
+                                    <div class="pt-4 pb-2 ps-3 main-content-memb">
+                                        <div>  
+                                            <div class="fs-6 fw-bold">Gói 6 tháng</div>
+                                            <div class="fs-6 fw-bold">180 ngày</div>
+                                        </div>
+                                        <div class="">
+                                            <div>
+                                                <h4 class="pt-2">162.000đ</h4>
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <div>
+                                                    <p class="fs-5 text-decoration-line-through">100.000đ</p>
+                                                </div>
+                                                 <div>
+                                                     <p  class="fs-5">-10%</p>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                   </div>
+                                </div>
+                                <div class="border rounded-3 position-relative main-content-box">
+                                    <div class="position-absolute main-content-box-click">
+                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.6665 3.9974L4.58317 6.91406L10.4165 1.08073" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </div>
+                                    <div class="pt-4 pb-2 ps-3 main-content-memb">
+                                        <div>  
+                                            <div class="fs-6 fw-bold">Gói 12 tháng</div>
+                                            <div class="fs-6 fw-bold">360 ngày</div>
+                                        </div>
+                                        <div class="">
+                                            <div>
+                                                <h4 class="pt-2">288.000đ</h4>
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <div>
+                                                    <p class="fs-5 text-decoration-line-through">360.000đ</p>
+                                                </div>
+                                                 <div>
+                                                     <p  class="fs-5">-20%</p>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row pt-5 mt-lg-4">
+                            <h4>Gói mua Sao để tương tác</h4>
+                            <p>Dùng Sao để tương tác với nội dung. Mỗi Sao tương ứng 1000đ</p>
+                            <div class="col-12 d-lg-flex flex-lg-row gap-3">                
+                               <div class="border rounded-3 position-relative main-content-box2">
+                                    <div class="position-absolute main-content-box-click2">
+                                       <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.6665 3.9974L4.58317 6.91406L10.4165 1.08073" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </div>
+                                    <div class="pt-4 pb-2 ps-3 main-content-memb">
+                                    <div>  
+                                        <div class="fs-6 fw-bold main-content-box-title">Gói 100 sao</div>
+                                    </div>
+                                    <div class="">
+                                        <div>
+                                            <h4 class="pt-2">95.000đ</h4>
+                                        </div>
+                                        <div class="d-flex gap-2">
+                                            <div>
+                                                <p class="fs-5 text-decoration-line-through">100.000đ</p>
+                                            </div>
+                                             <div>
+                                                 <p  class="fs-5">-5%</p>
+                                              </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                               </div>
+                                <div class="border rounded-3 position-relative position-relative main-content-box2">
+                                    <div class="position-absolute main-content-box-click2">
+                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.6665 3.9974L4.58317 6.91406L10.4165 1.08073" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </div>
+                                    <div class="pt-4 pb-2 ps-3 main-content-memb">
+                                        <div>  
+                                            <div class="fs-6 fw-bold main-content-box-title">Gói 500 sao</div>
+                                        </div>
+                                        <div class="">
+                                            <div>
+                                                <h4 class="pt-2">450.000đ</h4>
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <div>
+                                                    <p class="fs-5 text-decoration-line-through">500.000đ</p>
+                                                </div>
+                                                 <div>
+                                                     <p  class="fs-5">-10%</p>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="border rounded-3 position-relative main-content-box2">
+                                    <div class="position-absolute main-content-box-click2">
+                                        <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.6665 3.9974L4.58317 6.91406L10.4165 1.08073" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+                                    </div>
+                                    <div class="pt-4 pb-2 ps-3 main-content-memb">
+                                        <div>  
+                                            <div class="fs-6 fw-bold main-content-box-title">Gói 1000 sao</div>
+                                        </div>
+                                        <div class="">
+                                            <div>
+                                                <h4 class="pt-2">800.000đ</h4>
+                                            </div>
+                                            <div class="d-flex gap-2">
+                                                <div>
+                                                    <p class="fs-5 text-decoration-line-through">1.000.000đ</p>
+                                                </div>
+                                                 <div>
+                                                     <p  class="fs-5">-20%</p>
+                                                  </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                 </div>
+                            </div>
+                        </div>
+     
+                        
+                        <div class="d-flex flex-row justify-content-between p-3 mt-4 border rounded-3">
+                                <div>
+                                    <h4>Hoặc nhập số sao</h4>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control fw-bold" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="100">
+                                    </div>
+                                </div>
+                                <div>
+                                    <ul>
+                                        <li>100-499 Sao giảm giá 5%</li>
+                                        <li>500-999 Sao giảm giá 10%</li>
+                                        <li>Trên 1000 Sao giảm giá 20%</li>
+                                    </ul>
+                                </div>
+                        </div>
+                        
+
+                        <div class="row pt-4 d-none d-lg-block">
+                            <div class=" d-grid">
+                                <button class="btn ms-1 fw-bold" type="button">Thanh toán</button>  
+                            </div>
+                        </div>
+
+                        <div class="row pt-2 ps-1">
+                            <div class="col-lg-6">
+                               <p class="main-content-bottom">Để mua Sao hoặc tham gia thành viên Tuổi Trẻ Sao, cần có tài khoản và <a href="" class="text-decoration-underline fw-bold">đăng nhập</a> trước</p>
+                            </div>
+                            <div class="row pt-lg-4 d-lg-none">
+                                <div class=" d-grid">
+                                    <button class="btn btn-primary ms-1 fw-bold" type="button">Thanh toán</button>  
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <p>Nhấn "Thanh toán" đồng nghĩa với việc bạn đồng ý với <a href="" class="text-decoration-underline fw-bold">điều khoản mua hàng và thanh toán</a> của TTO</p>
+                            </div>
+                        </div>
+
+                        <div class="row d-lg-none">
+                            <p class="fs-4 fw-bold" style="color: #222;">Tham gia thành viên
+                                Tuổi Trẻ Sao để trải nghiệm
+                                nhiều giá trị riêng biệt
+                            </p>
+                            <div class="row">
+                               <div class="slider">
+                                   <div id="dot1" class="col-12 d-flex dots">
+                                    <div class="col-6">
+                                            <b class="fs-6">Phiên bản không quảng cáo</b>
+                                            <p class="des">Tất cả các bài viết và video không có quảng cáo</p>                                    
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgnoads.png" alt="" />
+                                    </div>
+                                   </div>
+                                   <div id="dot2" class="col-12 d-flex dots">
+                                    <div class="">
+                                       
+                                            <b class="fs-5">Tư vấn sức khỏe</b>
+                                            <p class="des">Cùng các bác sĩ giải đáp những vấn đề liên quan đến sức khỏe, làm đẹp</p>              
+                                        
+                                    </div>
+                                    <div class="">
+                                        <img class="w-100" src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgtuvansk.png" alt="" />
+                                    </div>
+                                   </div>
+                                   <div id="dot3" class="col-12 d-flex dots">
+                                    <div class="">
+                                      
+                                            <b class="fs-5">Tuổi Trẻ live</b>
+                                            <p class="des">Thường xuyên trực tiếp các sự kiện nóng trên cả nước</p>              
+                                      
+                                    </div>
+                                    <div class="">
+                                        <img class="w-100" src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimglive.png" alt="" />
+                                    </div>
+                                   </div>
+                                   <div id="dot4" class="col-12 d-flex dots">
+                                    <div class="">
+                                            <b class="fs-5">Tư vấn pháp luật</b>
+                                            <p class="des">Tư vấn những vấn đề liên quan pháp luật mà bạn đọc quan tâm</p>              
+                                        
+                                    </div>
+                                    <div class="">
+                                        <img class="w-100" src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgphapluat.png" alt="" />
+                                    </div>
+                                   </div>
+                                   <div id="dot5" class="col-12 d-flex dots">
+                                    <div class="col-6">
+                                            <b class="fs-6">Đọc báo in</b>
+                                            <p class="des">Đọc báo in bằng những trình duyệt hiện đại</p>                                    
+                                    </div>
+                                    <div class="col-6">
+                                        <img src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/starimgdocbaoin.png" alt="" />
+                                    </div>
+                                   </div>
+                               </div>
+                            </div>
+                            <div class="list">
+                                <ul>
+                                   <li><a href="#dot1"></a></li>
+                                    <li><a href="#dot2"></a></li>
+                                    <li><a href="#dot3"></a></li>
+                                    <li><a href="#dot4"></a></li>
+                                    <li><a href="#dot5"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>       
+                </div>
+            </div>
+        </div>
+    
+        <div class="py-5 d-none d-lg-block"></div>
+        <div class="container-fluid" style="background-color: #fafafc;">
+            <div class="container footer pt-5">
+                <div class="d-lg-flex flex-row sub-footer d-none d-lg-block">
+                    <div>
+                        <a href="">
+                            <h6>TRANG CHỦ</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>MEDIA</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>THỜI SỰ</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>THẾ GIỚI</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>PHÁP LUẬT</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>KINH DOANH</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>CÔNG NGHỆ</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>XE</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>DU LỊCH</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>NHỊP SỐNG TRẺ</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>VĂN HÓA</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>GIẢI TRÍ</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                            <h6>THỂ THAO</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                           <h6>GIAÓ DỤC</h6>
+                        </a>
+                   </div>
+                    <div>
+                        <a href="">
+                           <h6>KHOA HỌC</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                           <h6>SỨC KHỎE</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                           <h6>GIẢ THẬT</h6>
+                        </a>
+                    </div>
+                    <div>
+                        <a href="">
+                           <h6>BẠN ĐỌC</h6>
+                        </a>
+                    </div>
+                </div>
+              
+                <div class="row info-footer py-4">
+                    <div class="col-lg-2 d-none d-lg-block">
+                        <img class="w-50" src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/logo_startto.svg" alt="Tuổi Trẻ Sao">
+                        <div class="p-lg-2 bd-highlight">
+                            <span><i class="bi bi-youtube"></i></span>
+                            <span><i class="bi bi-twitter"></i></span>
+                            <span><i class="bi bi-facebook"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 g-0">
+                        <p>Tổng biên tập: Lê Thế Chữ</p>
+                        <p>Giấy phép hoạt động báo điện tử tiếng Việt, tiếng Anh</p>
+                        <p>Số 561/GP-BTTTT, cấp ngày 25-11-2022.</p>
+                        <h6>
+                            <a href="">Thông tin tòa soạn - Thành Đoàn TP.HCM</a>
+                        </h6>
+                    </div>
+                    <div class="col-lg-4 g-0">
+                        <p>Địa chỉ: 60A Hoàng Văn Thụ, P.9, Q.Phú Nhuận, Tp. Hồ Chí Minh</p>
+                        <p>Hotline: 0918.033.133 - Email: tto@tuoitre.com.vn</p>
+                        <p>Phòng Quảng Cáo Báo Tuổi Trẻ: 028.39974848</p>
+                        <div class="d-flex">
+                            <span>
+                                <a href="">
+                                    <h6>Liên hệ Quảng cáo<span class="pe-1"> | </span> </h6>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="">
+                                    <h6> Điều khoản bảo mật <span class="pe-1"> | </span></h6>
+                                </a>
+                            </span>
+                            <span>
+                                <a href="">
+                                    <h6> Liên hệ góp ý</h6>
+                                </a>
+                            </span>
+                        </div>
+                        
+                    </div>
+                    <div class="d-flex flex-row justify-content-between py-3 d-lg-none" style="border-top: 1px dashed #e5e5e5;border-bottom: 1px dashed #e5e5e5;">
+                        <div>
+                            <img class="w-50" src="https://static-tuoitre.tuoitre.vn/tuoitre/web_images/logo_startto.svg" alt="Tuổi Trẻ Sao">
+                        </div>
+                        <div class="">
+                            <span><i class="bi bi-youtube"></i></span>
+                            <span><i class="bi bi-twitter"></i></span>
+                            <span><i class="bi bi-facebook"></i></span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 g-0">
+                        <h5>Đăng ký email - Mở cổng thông tin</h5>
+                        <p>Để không bỏ lỡ tin tức & sự kiện được quan tâm</p>
+                        <button type="button" class="btn btn-primary btn-sm w-100">Đăng ký tại đây</button>
+                    </div>
+                </div>
+                <div class="row pt-3">
+                    <p style="font-size: 13px;">© Copyright 2022 TuoiTre Online, All rights reserved ® Tuổi Trẻ Online giữ bản quyền nội dung trên website này</p>
+                </div>
+            </div>
+        </div>
+    
+  
+    
+    
+</body>
+<script>
+    let contentBox = document.querySelectorAll('.main-content-box');
+    let contentBox2 = document.querySelectorAll('.main-content-box2');
+    let btn = document.querySelector('.btn');
+    let slider = document.getElementById('slider');
+    let pos = {left: 0, x: 0};
+    let flag = false;
+
+ 
+    contentBox.forEach(content => {
+        let contentClick = content.querySelector('.main-content-box-click');
+        content.addEventListener('click', () => {
+            let activeTag = document.querySelector('.active');
+    
+
+            if(activeTag) {
+               activeTag.classList.remove('active');
+               activeTag.querySelector('.main-content-box-click').style.display = "none";
+            }
+
+        contentClick.style.display = "block";  
+        content.classList.add('active');
+    });
+    })
+
+    contentBox2.forEach(content2 => {
+        let contentClick2 = content2.querySelector('.main-content-box-click2');
+        content2.addEventListener('click', () => {
+            let activeTag2 = document.querySelector('.active2');
+    
+
+            if(activeTag2) {
+               activeTag2.classList.remove('active2');
+               activeTag2.querySelector('.main-content-box-click2').style.display = "none";
+            }
+
+        contentClick2.style.display = "block";  
+        content2.classList.add('active2');
+    });
+    })
+
+    slider.addEventListener('mousedown', (e) => {
+        flag = true;
+        slider.style.cursor = "grabbing";
+        pos = {
+            left: slider.scrollLeft,
+            x: e.clientX
+        }
+        slider.addEventListener('mouseup', mouseUp);
+        slider.addEventListener('mousemove', mouseMove);
+    })
+
+    let mouseUp = (e) => {
+        flag = false;
+        slider.style.cursor = 'grab';
+    }
+
+    let mouseMove = (e) => {
+        if(flag){
+            let dx = e.clientX - pos.x;
+            slider.scrollLeft = pos.left - dx;
+        }
+    }
+
+    
+</script>
+</html>

@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cập nhật thông tin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/33ad855007.js" crossorigin="anonymous"></script> 
+    <style>
+        * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .sidebar,
+        .main-content-page {
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.0);
+        }
+      
+        .sidebar-content {
+            padding: 15px 50px 15px 30px;
+        }
+
+        .sidebar-content span {
+            color: #7E8299;
+        }
+
+        .bi-star-fill {
+            color: #ffd400;
+        }
+
+        .container-fluid-lg {
+            background-color: #E6E9F1;
+        }
+
+        .main-content {
+            width: 900px;
+        }
+
+        .main-content-page-title {
+            padding: 10px 90px 10px 70px;
+        }
+
+        .main-content-page-title span {
+            color: #B5B5C3;
+            font-weight: bold;
+        }
+       
+        .sidebar-list {
+            padding: 15px 20px 15px 30px;
+        }
+
+        .updates div {
+            padding: 26px 0px;
+        }
+
+        .updates a {
+            font-size: 12px;
+            font-weight: bold;
+            text-decoration: underline;
+            color: #7E8299;
+        }
+        
+        .updates a:hover {
+            color: #0d6efd;
+        }
+
+        .updates-mobi {
+            font-size: 12px;
+            color: #7E8299;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .footer h6 {
+            font-size: 11px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #464E5F;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #565656 !important;
+            margin: 0;
+        }
+
+        /* The modal */
+        .modal-title {
+            color: #464E5F;
+        }
+
+        .form-control {
+            background-color: #EAEEF2;
+            border-color: #EAEEF2;
+        }
+
+        .show-pwd-icon {
+            position: absolute;
+            right: 30px;
+            top: 22px;
+            color: black;
+        }
+
+        .show-pwd-icon-new {
+            position: absolute;
+            right: 30px;
+            top: 85px;
+            color: black;
+        }
+
+        .modal-footer {
+            margin: auto;
+            border-top: none;   
+            padding-top: 0px;
+        }
+
+        .button-save {
+            background: #0F75BC;
+            color: #fff;
+            text-transform: uppercase;
+            font-weight: 800;
+            margin-top: 0;
+        }
+
+        .button-save:hover {
+            background-color: rgb(233, 66, 66);
+            color: #fff;
+        }
+
+        .update {
+            cursor: pointer;
+        }
+
+        .error,
+        .errorPass {
+            display: none;
+            color: rgb(240, 27, 27);
+        }
+
+        .btn-link:focus,  
+        .btn-link:active,  
+        .btn-link:hover {
+            box-shadow: none;
+            border: none;
+            outline: none;
+            border-radius: 0;
+        }
+
+        .footer-art {
+            border-top: 1px dashed #e5e5e5;
+            border-bottom: 1px dashed #e5e5e5;
+            padding: 15px 0px;
+        }
+        
+        @media only screen and (max-width: 992px) {
+            .container-fluid-lg {
+                background-color: white;
+            }
+
+            .main-content-page-title {
+                padding: 10px 0px 0px 0px;
+            }
+
+            .main-content h4 {
+                font-size: 18px;
+            }    
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="container-fluid" style="background-color: #D1040D;">
+        <div class="text-center py-2">
+            <img src="https://sso.tuoitre.vn/images/logo.svg?id=3cbffc5f76d52fd354a7e39a3fd712fe" alt="Tuổi Trẻ Sao" width="112" height="40">
+        </div>
+    </div>
+
+    <div class="container-fluid-lg">
+        <div class="container-lg pt-1 pb-4">
+            <div class="d-flex flex-row gap-lg-4">
+                <!-- 1 -->
+                <div class="sidebar bg-white d-none d-lg-block">
+                   <!-- dòng 1 -->
+                   <div class="sidebar-content border-bottom pt-4">
+                        <h5>nguy****@gmail.com</h5>
+                        <h6>Email: <span>nguyen****@gmail.com</span></h6>
+                        <h6>Số điện thoại:</h6>
+                        <h6>Ngày tham gia: <span>07/11/2023</span></h6>
+                   </div>
+                   <!-- dòng 2 -->
+                   <div class="sidebar-content border-bottom">
+                        <div class="">
+                            <h6>THÀNH VIÊN TUỔI TRẺ SAO</h6>
+                            <h6><span>Chưa có gói đọc báo</span></h6>
+                        </div>
+                   </div>
+                   <!-- dòng 3 -->
+                   <div class="sidebar-content border-bottom">
+                       <p class="m-0">Sao mua: <b>0</b>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                           </svg>
+                       </p>
+                       <h6>Ngày hết hạn: <span>31/03/2024</span></h6>
+                   </div>
+                   <!-- dòng 4 -->
+                    <div class="sidebar-content border-bottom">
+                        <p>Sao khuyến mãi: <b>0</b>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                            </svg>
+                        </p>
+                    </div>
+                    <!-- dòng 5 -->
+                    <div class="sidebar-list">
+                        <div class="d-flex flex-row justify-content-between"> 
+                                <div class="d-flex">
+                                    <span>
+                                        <img class="mb-2" src="https://sso.tuoitre.vn/images/Star.png?id=3781d9888e14974361369d7163f0a813" alt="">
+                                    </span>
+                                    <span class="text-uppercase ms-2"><h6>Tuổi trẻ sao</h6></span>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-right mb-3" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </div>     
+                        </div>
+                          
+                        <div class="d-flex flex-row justify-content-between py-3">
+                            <div  class="d-flex">
+                                <span>
+                                    <img class="mb-2" src="https://sso.tuoitre.vn/images/Mirror.png?id=1beabe62ea06c31a0ea7e40a6faa578c" alt="">
+                                </span>
+                                <span class="text-uppercase ms-2"> <h6>Rao vặt</h6></span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-right mb-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                  </svg>
+                            </div>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/v2/sharp_red.png?id=f1c5fde1ceded1dbe4908a341d33e427" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Thông tin tài khoản</h6></span>
+                        </div>
+
+                        
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/Edit_Square.png?id=bbd94b491eddcbccc80b2f04a3a3460f" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Đăng ký bản tin</h6></span>
+                        </div>
+
+                        
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/Heart.png?id=c6f7f5802f4f20980d47792fc9a271e5" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Tin đã lưu</h6></span>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/v2/video-love.png?id=8b7f4d3d4c3eaae6053bf6c95463e032" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Video đã lưu</h6></span>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/Group-chat.png?id=5da37a2eb3f4a40ed956c7d29569db4c" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Hoạt động bình luận</h6></span>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/v2/Document.png?id=997baa2c2e481b7a3e11a795dcda5ee8" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Lịch sử giao dịch</h6></span>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/v2/icon-voucher.png?id=6503c2661b18a3efbd00bc53a0c04572" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Gift code</h6></span>
+                        </div>
+                      
+
+                    </div>
+
+                    <!-- dòng 6 -->
+                    <div class="border-top ms-4 pt-2">
+                        <div class="d-flex">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/arr011.png?id=9b830412dc05658dc36d7684085c4c3e" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Đăng xuất</h6></span>
+                        </div>
+                    </div>
+                </div>
+ 
+                <!-- 2 -->
+                <div class="main-content">
+                    <div class="main-content-page bg-white d-none d-lg-block">
+                        <div class="border-bottom pt-3 pb-2 ps-lg-5">
+                            <h4>Báo Tuổi Trẻ cam kết bảo mật thông tin</h4>
+                        </div>
+                        <div class="d-flex flex-row justify-content-between main-content-page-title">
+                            <div>
+                                <!-- ho va ten -->
+                                <div class="d-flex flex-row title py-3 gap-5">
+                                    <div>
+                                         <span>Họ và <div>tên:</div></span>
+                                    </div>
+                                    <div class="pt-3">
+                                         <h6>nguy****@gmail.com</h6>
+                                         <p style="font-size: 12px;">(Tên hiển thị khi tham gia bình luận)</p>
+                                    </div>
+                                </div>
+                                <!-- email -->
+                                <div class="d-flex flex-row py-3 gap-5">
+                                    <div>
+                                         <span>Email:</span>
+                                    </div>
+                                    <div class="">
+                                         <h6>nguy****@gmail.com</h6>                                     
+                                    </div>
+                                </div>
+                                <!-- dien thoai -->
+                                <div class="d-flex flex-row py-3 gap-5">
+                                    <div>
+                                         <span>Điện <div>thoại:</div></span>
+                                    </div>
+                                    <div class=" pt-3">
+                                         <h6 style="color: #DC3545">Chưa có số điện thoại</h6>                                     
+                                    </div>
+                                </div>
+                                <!-- mk -->
+                                <div class="d-flex flex-row py-3 gap-5 ps-1">
+                                    <div>
+                                         <span>Mật <div>khẩu:</div></span>
+                                    </div>
+                                    <div class="pt-3">
+                                         <h6>**********</h6>                                     
+                                    </div>
+                                </div>
+                                <!-- gioi tinh --> 
+                                <div class="d-flex flex-row py-3 gap-4">
+                                    <div>
+                                         <span>Giới tính:</span>
+                                    </div>
+                                    <div class="">
+                                         <h6 style="color: #DC3545">
+                                            Chưa có thông tin</h6>                                     
+                                    </div>
+                                </div>
+                                <!-- ngay sinh -->
+                                <div class="d-flex flex-row py-3 gap-5 ps-2">
+                                    <div>
+                                        <span>Ngày <div>sinh:</div></span>
+                                    </div>
+                                    <div class="">
+                                         <p style="color: #DC3545; font-size: 12px;">
+                                            Cập nhật chính xác ngày sinh để có cơ hội 
+                                            <div style="color: #DC3545; font-size: 12px;"> nhận được những bất ngờ từ báo Tuổi Trẻ</div>
+                                        </p>                                     
+                                    </div>
+                                </div>
+                                <div class="d-flex flex-row py-lg-3 gap-4">
+                                    <div>
+                                         <span>Địa điểm:</span>
+                                    </div>
+                                    <div class="">
+                                         <h6 style="color: #DC3545">
+                                            Chưa chọn địa điểm</h6>                                     
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="updates">
+                                <div>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalTen">Cập nhật</a>
+                                </div>
+                                <div class="mt-lg-2">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalEmail">Cập nhật</a>
+                                </div>
+                                <div>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalNumb">Cập nhật</a>
+                                </div>
+                                <div class="mt-lg-1">
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalPass">Cập nhật</a>
+                                </div>
+                                <div>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalGen">Cập nhật</a>
+                                </div>
+                                <div>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalBirth">Cập nhật</a>
+                                </div>
+                                <div>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModalPlace">Cập nhật</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Mobile -->
+                    <div class="d-lg-none main-content-page-title">
+                        <div class="border-bottom py-3">
+                            <h4>Báo Tuổi Trẻ cam kết bảo mật thông tin</h4>
+                        </div>
+                        <div class="pt-4">
+                            <span>Họ và tên:</span>
+                            <div class="d-flex flex-row justify-content-between py-4">
+                                <div>
+                                    <h6>nguy****@gmail.com</h6>
+                                    <p style="font-size: 12px;">(Tên hiển thị khi tham gia bình luận)</p>
+                                </div>
+                                <div>
+                                    <h6 class="updates-mobi">Cập nhật</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Email:</span>
+                            <div class="d-flex flex-row justify-content-between pt-3 pb-4">
+                                <div>
+                                    <h6>nguy****@gmail.com</h6>
+                                </div>
+                                <div>
+                                    <h6 class="updates-mobi">Cập nhật</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Điện thoại:</span>
+                            <div class="d-flex flex-row justify-content-between pt-3 pb-4">
+                                <div>
+                                    <h6 style="color: #DC3545">Chưa có số điện thoại</h6>
+                                </div>
+                                <div>
+                                    <h6 class="updates-mobi">Cập nhật</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Mật khẩu:</span>
+                            <div class="d-flex flex-row justify-content-between pt-3 pb-4">
+                                <div>
+                                    <h6>********</h6>
+                                </div>
+                                <div>
+                                    <h6 class="updates-mobi">Cập nhật</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Giới tính</span>
+                            <div class="d-flex flex-row justify-content-between pt-3 pb-4">
+                                <div>
+                                    <h6 style="color: #DC3545">Chưa có thông tin</h6>
+                                </div>
+                                <div>
+                                    <h6 class="updates-mobi">Cập nhật</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Ngày sinh</span>
+                            <div class="d-flex flex-row justify-content-between pt-3 pb-4">
+                                <div>
+                                    <p style="color: #DC3545">Cập nhật chính xác ngày sinh để có cơ hội<div style="color: #DC3545">
+                                        nhận được những bất ngờ từ báo Tuổi Trẻ</div></p>
+                                </div>
+                                <div>
+                                    <h6 class="updates-mobi">Cập nhật</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <span>Địa điểm </span>
+                            <div class="d-flex flex-row justify-content-between pt-3 pb-4">
+                                <div>
+                                    <h6>Chưa chọn địa điểm</h6>
+                                </div>
+                                <div>
+                                    <h6 class="updates-mobi">Cập nhật</h6>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+
+                    <!-- dong 2 -->
+                    <div class="main-content-page bg-white">
+                        <div class="border-bottom pt-3 pb-2 ps-lg-5">
+                            <h4>Liên kết mạng xã hội</h4>
+                        </div>
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center main-content-page-title">
+                                <div>
+                                    <div class="d-flex gap-3">
+                                        <span><img src="https://sso.tuoitre.vn/images/google.png?id=0598608ca248419e62f0173059470d69" width="30"></span>
+                                        <span>
+                                            <h6 style="color: #333 !important; font-weight: bold;">Google</h6>
+                                            <p>Liên kết google</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault" checked>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center main-content-page-title">
+                                <div>
+                                    <div class="d-flex gap-3">
+                                        <span><img src="https://sso.tuoitre.vn/images/facebook.png?id=00702326b3f43ed1873d9913fbe3509a" width="30"></span>
+                                        <span>
+                                            <h6 style="color: #333 !important; font-weight: bold;">Facebook</h6>
+                                            <p>Liên kết facebook</p>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- dong 3 -->
+                    <div class="main-content-page bg-white pb-lg-5">
+                        <div class="border-bottom pt-3 pb-2 ps-lg-5">
+                            <h4>Tải ứng dụng Báo Tuổi Trẻ</h4>
+                        </div>
+                        <div class="d-flex flex-row mt-4 main-content-page-title">
+                            <div class="col-lg-4">
+                                <img class="w-75" src="https://sso.tuoitre.vn/images/qr.jpg?id=f65e04bfe10cd0bc2470397e173b01d7">
+                            </div>
+                            <div class="col-lg-4 pt-5 mt-2">
+                                <a href="">
+                                    <img class="w-75" src="https://sso.tuoitre.vn/images/apple_app.png?id=76d0675b4d1c8f741d6d2dd153c1a955">
+                                </a>
+                            </div>
+                            <div class="col-lg-4 pt-5 mt-2">
+                                <a href="">
+                                    <img class="w-75" src="https://sso.tuoitre.vn/images/gg_app.png?id=52b7031a235ad2a95be783f2d52fcd7d">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="container mt-5">
+        <div class="d-lg-flex flex-row gap-2 footer d-none d-lg-block">
+            <div class="p-2">
+                <a href="" style="color: #ED1C24 !important;">
+                    <h6>TRANG CHỦ</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>MEDIA</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>THỜI SỰ</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>THẾ GIỚI</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>PHÁP LUẬT</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>KINH DOANH</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>CÔNG NGHỆ</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>XE</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>DU LỊCH</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>NHỊP SỐNG TRẺ</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>VĂN HÓA</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>GIẢI TRÍ</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>THỂ THAO</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>GIÁO DỤC</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>KHOA HỌC</h6>
+                </a>
+            </div>
+          
+        </div>
+        <div class="d-lg-flex flex-row mb-3 footer d-none d-lg-block">
+            <div class="p-2">
+                <a href="">
+                    <h6>SỨC KHỎE</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>GIẢ THẬT</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>BẠN ĐỌC</h6>
+                </a>
+            </div>
+        </div>
+        <div class="ms-2 d-none d-lg-block" style="border-top: 3px solid #E30E16;"></div>
+        <div class="d-flex flex-row justify-content-between d-lg-none footer-art">
+            <div>
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/ftt.png" width="105px" height="30px">
+                </a>
+            </div>
+            <div>
+                <span>
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="1.16699" width="23" height="23" rx="11.5" stroke="#666666"></rect>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.75984 16.9011C6.52448 16.8314 6.30973 16.7076 6.13372 16.5399C5.9577 16.3722 5.82559 16.1657 5.74851 15.9377C5.3081 14.7594 5.1776 9.83915 6.02581 8.86784C6.30811 8.55186 6.70668 8.35732 7.13501 8.32645C9.41049 8.0876 16.4408 8.11945 17.2483 8.40606C17.4754 8.47799 17.6828 8.59915 17.8552 8.76047C18.0275 8.92178 18.1602 9.11908 18.2433 9.33757C18.7245 10.5557 18.7408 14.9823 18.178 16.1527C18.0287 16.4573 17.7788 16.7041 17.4685 16.8533C16.6203 17.2673 7.88534 17.2594 6.75984 16.9011ZM10.3729 14.5922L14.4508 12.5222L10.3729 10.4363V14.5922Z" fill="#666666"></path>
+                    </svg>
+                </span>
+                <span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="#565656"></rect>
+                        <path d="M17.6 11.8C17.6 13.1377 17.6 14.4754 17.6 15.813C17.6 16.8852 16.875 17.6 15.813 17.6C13.1377 17.6 10.4725 17.6 7.79718 17.6C6.725 17.6 6 16.875 6 15.813C6 13.1377 6 10.4725 6 7.79718C6 6.725 6.725 6 7.78697 6C10.4623 6 13.1275 6 15.8028 6C16.875 6 17.5898 6.725 17.5898 7.78697C17.6 9.12465 17.6 10.4623 17.6 11.8ZM14.8532 11.8102C14.843 10.1151 13.4644 8.75704 11.7694 8.76725C10.1049 8.77746 8.74683 10.1458 8.74683 11.8204C8.74683 13.5155 10.1254 14.8838 11.8204 14.8838C13.4951 14.8736 14.8634 13.4951 14.8532 11.8102ZM15.5373 8.76725C15.9049 8.76725 16.2113 8.46092 16.2113 8.0831C16.2113 7.70528 15.9049 7.40915 15.5373 7.40915C15.1697 7.40915 14.8634 7.71549 14.8634 8.09331C14.8634 8.46092 15.1697 8.76725 15.5373 8.76725Z" fill="#565656"></path>
+                        <path d="M9.42065 11.8323C9.42065 10.5253 10.4826 9.45312 11.7897 9.45312C13.1069 9.45312 14.1791 10.5253 14.1791 11.8426C14.1689 13.1394 13.1069 14.2014 11.7999 14.2014C10.4928 14.2014 9.42065 13.1394 9.42065 11.8323Z" fill="#565656"></path>
+                    </svg>
+                </span>
+                <span>
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="1.16699" width="23" height="23" rx="11.5" stroke="#666666"></rect>
+                        <path d="M12.9966 12.8847H15.2299L15.5805 10.6021H12.9961V9.35462C12.9961 8.40641 13.3041 7.56559 14.1857 7.56559H15.6023V5.57366C15.3534 5.53985 14.827 5.46582 13.8323 5.46582C11.7553 5.46582 10.5375 6.5694 10.5375 9.08364V10.6021H8.40234V12.8847H10.5375V19.1584C10.9604 19.2224 11.3887 19.2658 11.8284 19.2658C12.2258 19.2658 12.6137 19.2293 12.9966 19.1772V12.8847Z" fill="#666666"></path>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="d-lg-flex flex-row justify-content-between mb-lg-3 mt-3 footer">
+            <div class="p-lg-2 pt-2">
+               <p>Tổng biên tập: Lê Thế Chữ</p>
+               <p>Giấy phép hoạt động báo điện tử tiếng Việt, tiếng Anh Số 561/GP-BTTTT, cấp ngày 25-11-2022.</p>
+               <a href="">
+                <h6>Thông tin tòa soạn - Thành Đoàn TP.HCM</h6>
+               </a>
+            </div>
+            <div class="p-lg-2">
+                <p>Địa chỉ: 60A Hoàng Văn Thụ, P.9, Q.Phú Nhuận, Tp. Hồ Chí Minh</p>
+                <p>Hotline: 0918.033.133 - Email: tto@tuoitre.com.vn</p>
+                <p>Phòng Quảng Cáo Báo Tuổi Trẻ: 028.39974848</p>
+            </div>
+            <div class="">
+                <a href="">
+                    <h6>Liên Hệ Quảng Cáo</h6>
+                </a>
+                <a href="">
+                    <h6>Chính Sách Bảo Mật</h6>
+                </a>
+                <a href="">
+                    <h6>Liên Hệ Góp Ý</h6>
+                </a>
+            </div>
+        </div>
+        <div class="d-lg-flex flex-row mb-3 mx-2 gap-4 border-top d-none d-lg-block">
+            <div class="p-2">
+                <a href="">
+                   <img src="https://sso.tuoitre.vn/images/ftt.png" alt="">
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/ftttv.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttpodcast.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttc.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttct.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttn.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttmedia.svg" alt="">
+                 </a>
+            </div>
+         
+            
+        </div>
+        <div class="d-lg-flex flex-row mb-3 mx-2 border-bottom d-none d-lg-block">
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttrv.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fmuctim.svg" alt="">
+                 </a>
+            </div>
+        </div>
+        <div class="d-flex footer">
+            <div class="p-lg-2 flex-grow-1 bd-highlight">
+                <p>© Copyright 2023 TuoiTre Online, All rights reserved ® Tuổi Trẻ Online giữ bản quyền nội dung trên website này</p>
+            </div>
+            <div class="p-lg-2 bd-highlight d-none d-lg-block">
+                <span><i class="bi bi-youtube"></i></span>
+                <span><i class="bi bi-twitter"></i></span>
+                <span><i class="bi bi-facebook"></i></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <!-- Ten -->
+    <div class="modal fade" id="exampleModalTen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-uppercase fw-bold" id="exampleModalLabel">Cập nhật họ và tên</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="pb-4">
+                    <input type="password" class="form-control inputPass" placeholder="Nhập mật khẩu">
+                    <span class="show-pwd-icon">
+                        <i  class="fa fa-fw fa-eye showPassword"></i>
+                    </span>
+                </div>
+                <div>
+                    <input type="text" class="form-control inputName" placeholder="Nhập họ và tên">
+                </div>
+                <div class="error pt-4">
+                    <p>Mật khẩu không được chỗ trống.</p>
+                </div>
+                <div class="errorPass pt-4">
+                    <p>Mật khẩu phải lớn hơn 6 ký tự.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn button-save">Lưu thay đổi</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- email -->
+    <div class="modal fade" id="exampleModalEmail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-uppercase fw-bold" id="exampleModalLabel">Cập nhật email</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="pb-4">
+                    <input type="password" class="form-control inputPass" placeholder="Nhập mật khẩu">
+                    <span class="show-pwd-icon">
+                        <i  class="fa fa-fw fa-eye showPassword"></i>
+                    </span>
+                </div>
+                <div>
+                    <input type="text" class="form-control inputName" placeholder="Nhập email">
+                </div>
+                <div class="error pt-4">
+                    <p>Mật khẩu không được chỗ trống.</p>
+                </div>
+                <div class="errorPass pt-4">
+                    <p>Mật khẩu phải lớn hơn 6 ký tự.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn button-save">Lưu thay đổi</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="modal fade" id="exampleModalNumb" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-uppercase fw-bold" id="exampleModalLabel">Cập nhật số điện thoại</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="pb-4">
+                    <input type="password" class="form-control inputPass" placeholder="Nhập mật khẩu">
+                    <span class="show-pwd-icon">
+                        <i  class="fa fa-fw fa-eye showPassword"></i>
+                    </span>
+                </div>
+                <div>
+                    <input type="text" class="form-control inputName" placeholder="Nhập số điện thoại">
+                </div>
+                <div class="error pt-4">
+                    <p>Mật khẩu không được chỗ trống.</p>
+                </div>
+                <div class="errorPass pt-4">
+                    <p>Mật khẩu phải lớn hơn 6 ký tự.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn button-save">Lưu thay đổi</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Pass -->
+    <div class="modal fade" id="exampleModalPass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-uppercase fw-bold" id="exampleModalLabel">Cập nhật mật khẩu</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="pb-4">
+                    <input type="password" class="form-control inputPass" placeholder="Nhập mật khẩu cũ">
+                    <span class="show-pwd-icon">
+                        <i  class="fa fa-fw fa-eye showPassword"></i>
+                    </span>
+                </div>
+                <div>
+                    <input type="text" class="form-control inputPassNew" placeholder="Nhập mật khẩu mới">
+                    <span class="show-pwd-icon-new">
+                        <i  class="fa fa-fw fa-eye showPasswordNew"></i>
+                    </span>
+                </div>
+                <div class="error pt-4">
+                    <p>Mật khẩu cũ không được chỗ trống.</p>
+                </div>
+                <div class="errorPass pt-4">
+                    <p>Mật khẩu cũ phải lớn hơn 6 ký tự.</p>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn button-save">Lưu thay đổi</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Gioi tinh -->
+    <div class="modal fade" id="exampleModalGen" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-uppercase fw-bold" id="exampleModalLabel">Cập nhật giới tính</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+              <input type="radio" id="" name="gender">
+              <label class="pe-3" for="Nam">Nam</label>
+              <input type="radio" id="Nữ" name="gender">
+              <label class="pe-3" for="Nữ">Nữ</label>
+              <input type="radio" id="" name="gender">
+              <label for="Khác">Khác</label>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn button-save">Lưu thay đổi</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Ngay sinh -->
+    <div class="modal fade" id="exampleModalBirth" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-uppercase fw-bold" id="exampleModalLabel">Cập nhật ngày sinh</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-row justify-content-between gap-4">
+              <div class="w-75">
+                <select class="form-select">
+                  <option selected>1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">24</option>
+                  <option value="25">25</option>
+                  <option value="26">26</option>
+                  <option value="27">27</option>
+                  <option value="28">28</option>
+                  <option value="29">29</option>
+                  <option value="30">30</option>
+                </select>
+              </div>
+              <div class="w-100">
+                <select class="form-select">
+                  <option selected>Tháng Một</option>
+                  <option value="2">Tháng Hai</option>
+                  <option value="3">Tháng Ba</option>
+                  <option value="4">Tháng Tư</option>
+                  <option value="5">Tháng Năm</option>
+                  <option value="6">Tháng Sáu</option>
+                  <option value="7">Tháng Bảy</option>
+                  <option value="8">Tháng Tám</option>
+                  <option value="9">Tháng Chín</option>
+                  <option value="10">Tháng Mười</option>
+                  <option value="11">Tháng Mười Một</option>
+                  <option value="12">Tháng Mười Hai</option>
+                </select>
+              </div>
+              <div class="w-75">
+                <select class="form-select">
+                  <option selected>1991</option>
+                  <option value="2">1992</option>
+                  <option value="3">1993</option>
+                  <option value="4">1994</option>
+                  <option value="5">1995</option>
+                  <option value="6">1996</option>
+                  <option value="7">1997</option>
+                  <option value="8">1998</option>
+                  <option value="9">1999</option>
+                  <option value="10">2000</option>
+                </select>
+              </div>
+
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn button-save">Lưu thay đổi</button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <!-- Dia diem -->
+    <div class="modal fade" id="exampleModalPlace" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title text-uppercase fw-bold" id="exampleModalLabel">Cập nhật địa điểm</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body d-flex flex-row justify-content-between gap-4">
+              <div class="w-100">
+                <select class="form-select">
+                  <option selected>Việt Nam</option>
+                </select>
+              </div>
+              <div class="w-100 container">
+            
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn button-save">Lưu thay đổi</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</body>
+<script>
+    let modalDialog = document.querySelectorAll('.modal-dialog');
+    
+    modalDialog.forEach(dialog => {
+        console.log(dialog)
+    let error = dialog.querySelector('.error');
+    let errorPass = dialog.querySelector('.errorPass');
+    let btnSave = dialog.querySelector('.button-save'); 
+    let showPassword = dialog.querySelector('.showPassword');
+    let inputPass = dialog.querySelector('.inputPass');
+    let inputName = dialog.querySelector('.inputName');
+
+    let showPasswordNew = dialog.querySelector('.showPasswordNew');
+    let inputPassNew = dialog.querySelector('.inputPassNew');
+   
+     
+    let container = dialog.querySelector('.container');
+    let url = 'https://vapi.vnappmob.com/api/province/';
+    let contentPlace = '<select class="form-select">';
+
+   if(btnSave) {
+    btnSave.addEventListener('click', () => { 
+      if((inputPass.value < 6) &&  (inputPass.value > 0 )) {
+        errorPass.style.display = 'block';
+        error.style.display = 'none';
+      } else if ((inputPass.value == '') && (inputName.value == '')) {
+        error.style.display = 'block';
+        errorPass.style.display = 'none';
+      }
+    });
+   }
+
+   if(showPassword) {
+    showPassword.addEventListener('click', () => {
+      if(inputPass.type === 'password') {
+        inputPass.type = 'text';
+        showPassword.classList.remove('fa-eye');
+        showPassword.classList.add('fa-eye-slash');
+      } else {
+        inputPass.type = 'password';
+        showPassword.classList.add('fa-eye');
+        showPassword.classList.remove('fa-eye-slash');
+      }
+    })
+   }
+
+    if(showPasswordNew) {
+        showPasswordNew.addEventListener('click', () => {
+      if(inputPassNew.type === 'password') {
+        inputPassNew.type = 'text';
+        showPasswordNew.classList.remove('fa-eye');
+        showPasswordNew.classList.add('fa-eye-slash');
+      } else {
+        inputPassNew.type = 'password';
+        showPasswordNew.classList.add('fa-eye');
+        showPasswordNew.classList.remove('fa-eye-slash');
+      }
+    })
+    }
+    
+    fetch(url, {
+      method: 'GET',
+      headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+    
+    .then(data => data.json())
+    .then(data => {
+        console.log(data);
+        data.results.forEach(elm => {
+           if(elm.province_id === '79') {
+            contentPlace += `<option value="${elm.province_id}" selected>${elm.province_name}</option>`;
+           } else {
+            contentPlace += `<option value="${elm.province_id}">${elm.province_name}</option>`;
+           }
+        });
+        contentPlace += `</select>`;
+        container.innerHTML = contentPlace;
+    })
+  
+
+    
+
+
+   
+  });
+
+
+ 
+ 
+  
+
+</script>
+</html>

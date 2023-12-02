@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký bản tin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        * {
+           margin: 0;
+           padding: 0;
+           box-sizing: border-box;
+           font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .sidebar,
+        .main-content-page {
+            margin-top: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px 0px rgba(76, 87, 125, 0.0);
+        }
+      
+        .sidebar-content {
+            padding: 15px 50px 15px 30px;
+        }
+
+        .sidebar-content-promotion  {
+            padding: 15px 50px 5px 30px;
+        }
+
+        .sidebar-content span {
+            color: #7E8299;
+        }
+
+        .bi-star-fill {
+            color: #ffd400;
+        }
+
+        .container-fluid-lg {
+            background-color: #E6E9F1;
+        }
+
+        .sidebar-list {
+            padding: 15px 20px 15px 30px;
+        }
+
+        .main-content {
+            width: 900px;
+        }
+
+        .main-content-page-title {
+            margin: 30px 0px 0px 40px;
+        }
+
+        .main-content-page-title p,
+        label {
+            color: #333;
+        }
+
+        .form-check-input {
+            background-color: #dddd;
+            border: none;
+            margin-right: 6px;
+        }
+
+        .main-content-page-age label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type=radio] {
+            appearance: none;
+            background-color: #dddd;
+            width: 16px;
+            height: 16px;
+            border: none;
+            border-radius: 4px;
+            display: inline-grid;
+            place-content: center;
+            margin-right: 6px; 
+        }
+
+        input[type=radio]::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            transform: scale(0);
+            transform-origin: bottom left;
+            background-color: #fff;
+            clip-path: polygon(13% 50%, 34% 66%, 81% 2%, 100% 18%, 39% 100%, 0 71%);
+        }
+
+        input[type=radio]:checked::before {
+            transform: scale(1);
+        }
+
+        input[type=radio]:checked{
+            background-color:  #19ACFF;
+            border: 2px solid #19ACFF;
+            box-shadow: 0px 0px 0px 4px #C2DBFE;
+        }
+
+        input[type=checkbox]:checked{
+            background-color:  #19ACFF;
+            border: 2px solid #19ACFF;
+            box-shadow: 0px 0px 0px 4px #C2DBFE;
+        }
+      
+        .active {
+            color: #fff;
+            background-color: #19ACFF !important;
+        }
+
+        .main-content-page-info div {
+            display: flex;
+            gap: 5px;
+        }
+
+        .main-content-page-info p {
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        .input-email {
+            width: 326px;
+            height: 38px;
+            padding: 10px;
+            background-color: #e9ecef;
+            border: 1px solid red;
+            border-radius: 5px;
+            opacity: 1;
+        }
+
+        .button-save {
+            width: 150px;
+            background-color: #ED1C24 !important;
+            color: #fff;
+        }
+
+        .footer h6 {
+            font-size: 11px;
+        }
+
+        .footer a {
+            text-decoration: none;
+            color: #464E5F;
+        }
+
+        .footer p {
+            font-size: 14px;
+            color: #565656 !important;
+            margin: 0;
+        }
+
+        .footer-art {
+            border-top: 1px dashed #e5e5e5;
+            border-bottom: 1px dashed #e5e5e5;
+            padding: 15px 0px;
+        }
+        @media only screen and (max-width: 992px) {
+            .container-fluid-lg,
+            .container-lg {
+                background-color: white;
+                padding-left: 0px;
+                padding-right: 0px;
+            }
+
+            .main-content-page {
+                margin-top: 10px;
+            }
+
+            .main-content-page h5 {
+                padding-left: 5px;
+            }
+
+            .main-content-page-title {
+                padding: 10px 0px 0px 0px;
+            }
+
+            .main-content h4 {
+                font-size: 18px;
+            }    
+
+            .form-text {
+                width: 400px;
+            }
+
+            .footer-art {
+                padding-left: 40px;
+                padding-right: 40px;
+            }
+
+            .footer {
+                padding-left: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="container-fluid" style="background-color: #D1040D;">
+        <div class="text-center py-2">
+            <img src="https://sso.tuoitre.vn/images/logo.svg?id=3cbffc5f76d52fd354a7e39a3fd712fe" alt="Tuổi Trẻ Sao" width="112" height="40">
+        </div>
+    </div>
+
+    <div class="container-fluid-lg">
+        <div class="container-lg pt-1 pb-4">
+            <div class="d-flex flex-row gap-lg-4">
+                <!-- 1 -->
+                <div class="sidebar bg-white d-none d-lg-block">
+                   <!-- dòng 1 -->
+                   <div class="sidebar-content border-bottom pt-4">
+                        <h5>nguy****@gmail.com</h5>
+                        <h6>Email: <span>nguyen****@gmail.com</span></h6>
+                        <h6>Số điện thoại:</h6>
+                        <h6>Ngày tham gia: <span>07/11/2023</span></h6>
+                   </div>
+                   <!-- dòng 2 -->
+                   <div class="sidebar-content border-bottom">
+                        <div class="">
+                            <h6>THÀNH VIÊN TUỔI TRẺ SAO</h6>
+                            <h6><span>Chưa có gói đọc báo</span></h6>
+                        </div>
+                   </div>
+                   <!-- dòng 3 -->
+                   <div class="sidebar-content border-bottom">
+                       <p class="m-0">Sao mua: <b>0</b>
+                           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                            <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                           </svg>
+                       </p>
+                       <h6>Ngày hết hạn: <span>31/03/2024</span></h6>
+                   </div>
+                   <!-- dòng 4 -->
+                    <div class="sidebar-content-promotion border-bottom">
+                        <p>Sao khuyến mãi: <b>0</b>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                                <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
+                            </svg>
+                        </p>
+                    </div>
+                    <!-- dòng 5 -->
+                    <div class="sidebar-list">
+                        <div class="d-flex flex-row justify-content-between"> 
+                                <div class="d-flex">
+                                    <span>
+                                        <img class="mb-2" src="https://sso.tuoitre.vn/images/Star.png?id=3781d9888e14974361369d7163f0a813" alt="">
+                                    </span>
+                                    <span class="text-uppercase ms-2"><h6>Tuổi trẻ sao</h6></span>
+                                </div>
+                                <div>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-right mb-3" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                    </svg>
+                                </div>     
+                        </div>
+                          
+                        <div class="d-flex flex-row justify-content-between py-3">
+                            <div  class="d-flex">
+                                <span>
+                                    <img class="mb-2" src="https://sso.tuoitre.vn/images/Mirror.png?id=1beabe62ea06c31a0ea7e40a6faa578c" alt="">
+                                </span>
+                                <span class="text-uppercase ms-2"> <h6>Rao vặt</h6></span>
+                            </div>
+                            <div>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-chevron-right mb-3" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                  </svg>
+                            </div>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/v2/sharp_red.png?id=f1c5fde1ceded1dbe4908a341d33e427" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Thông tin tài khoản</h6></span>
+                        </div>
+
+                        
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/Edit_Square.png?id=bbd94b491eddcbccc80b2f04a3a3460f" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Đăng ký bản tin</h6></span>
+                        </div>
+
+                        
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/Heart.png?id=c6f7f5802f4f20980d47792fc9a271e5" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Tin đã lưu</h6></span>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/v2/video-love.png?id=8b7f4d3d4c3eaae6053bf6c95463e032" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Video đã lưu</h6></span>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/Group-chat.png?id=5da37a2eb3f4a40ed956c7d29569db4c" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Hoạt động bình luận</h6></span>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/v2/Document.png?id=997baa2c2e481b7a3e11a795dcda5ee8" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Lịch sử giao dịch</h6></span>
+                        </div>
+
+                        <div class="d-flex pb-3">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/v2/icon-voucher.png?id=6503c2661b18a3efbd00bc53a0c04572" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Gift code</h6></span>
+                        </div>
+                      
+
+                    </div>
+
+                    <!-- dòng 6 -->
+                    <div class="border-top ms-4 pt-2">
+                        <div class="d-flex">
+                            <span><img class="" src="https://sso.tuoitre.vn/images/arr011.png?id=9b830412dc05658dc36d7684085c4c3e" alt=""></span>
+                            <span><h6 class="mt-1 ms-2">Đăng xuất</h6></span>
+                        </div>
+                    </div>
+                </div>
+ 
+                <!-- 2 -->
+                <div class="main-content">
+                    <div class="main-content-page bg-white">
+                        <div class="border-bottom pt-lg-3 pb-2 ps-lg-5">
+                            <h5 class="fw-bold">Đăng ký bản tin</h5>
+                        </div>
+                        <div class="main-content-page-title">
+                            <p>Khi đăng ký nhận email từ báo Tuổi Trẻ, bạn sẽ cập nhật được các tin tức mới nhất, bài viết nổi bật,
+                            thông tin sự kiện và các chương trình đặc biệt do báo Tuổi Trẻ tổ chức.</p>
+                            <p class="fw-bold fs-5 text-uppercase pt-2" style="color: #ED1C24;">Lựa chọn của bạn</p>
+                            <p class="fw-bold fs-6 text-uppercase">Chủ đề bạn quan tâm <span class="fw-bolder fs-6 text-danger">(*)</span></p>
+                            <div class="row g-0">
+                                <div class="col-12 col-xl-4 py-2">
+                                   <input type="checkbox" name="" id="" class="form-check-input">
+                                   <label for="">Thời sự (Chính trị & xã hội)</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Thế giới</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Pháp luật</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Văn hóa - Giải trí</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Nhịp sống trẻ</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Kinh doanh</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Sức khỏe</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Giáo dục</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Công nghệ</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Video</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Xe</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Du lịch</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Thể thao</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Nhà đất</label>
+                                </div>
+                                <div class="col-6 col-xl-4 py-2">
+                                    <input type="checkbox" name="" id="" class="form-check-input">
+                                    <label for="">Khoa học</label>
+                                </div>
+                            </div>
+
+                            <p class="fw-bold fs-6 text-uppercase pt-2">Thông tin tổng hợp và các sự kiện <span class="fw-bolder fs-6 text-danger">(*)</span></p>
+                            <div class="row g-0 main-content-page-info">
+                                <div>
+                                    <input type="checkbox" name="" id="" class="form-check-input mt-3">
+                                    <label for="">
+                                        <h6>Tin tức thời sự nổi bật</h6>
+                                        <p>Tin thời sự trong nước & quốc tế đang được xã hội quan tâm</p>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="" id="" class="form-check-input mt-3">
+                                    <label for="">
+                                        <h6>Bản tin tổng hợp</h6>
+                                        <p>Tin tức & sự kiện xảy ra trong 24h</p>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="" id="" class="form-check-input mt-3">
+                                    <label for="">
+                                        <h6>Sự kiện do báo Tuổi Trẻ tổ chức</h6>
+                                        <p>Các chương trình hội thảo, tọa đàm, tư vấn,...</p>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="" id="" class="form-check-input mt-3">
+                                    <label for="">
+                                        <h6>Tin tức bạn đọc quan tâm nhiều</h6>
+                                        <p>Chủ đề tin tức bạn đọc xem nhiều nhất trong ngày/ tuần/ tháng</p>
+                                    </label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="" id="" class="form-check-input mt-3">
+                                    <label for="">
+                                        <h6>Bảng tin chuyên sâu - độc quyền</h6>
+                                        <p class="form-text">Phóng sự đặc biệt, chuyên đề đặc biệt, bài viết phân tích chuyên sâu của các chuyên gia trong các lĩnh vực</p>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <p class="fw-bold fs-6 text-uppercase">Thông tin của bạn</p>
+                            <p>Các thông tin bạn đọc cung cấp sẽ giúp báo Tuổi Trẻ gửi đến bạn những giá trị phù hợp</p>
+                            <p class="fw-bold fs-6">Độ tuổi của bạn</p>
+                            <div class="row g-0 main-content-page-age">
+                                <div class="col-12 col-lg-6 py-2">
+                                    <label>
+                                        <input type="radio" name="fruit"> Từ 18 - 24 tuổi
+                                    </label>
+                               </div>
+                                <div class="col-12 col-lg-6 py-2">
+                                    <label>
+                                        <input type="radio" name="fruit"> Từ 25 - 34 tuổi
+                                    </label>
+                                </div>
+                                <div class="col-12 col-lg-6 py-2">
+                                    <label>
+                                        <input type="radio" name="fruit"> Từ 35 - 44 tuổi
+                                    </label>
+                                </div>
+                                <div class="col-12 col-lg-6 py-2">
+                                    <label>
+                                        <input type="radio" name="fruit"> Từ 45 - 54 tuổi
+                                    </label>
+                                </div>
+                                <div class="col-12 col-lg-6 py-2">
+                                    <label>
+                                        <input type="radio" name="fruit"> Từ 55 - 64 tuổi
+                                    </label>
+                                </div>
+                                <div class="col-12 col-lg-6 py-2">
+                                    <label>
+                                        <input type="radio" name="fruit"> Trên 65 tuổi
+                                    </label>
+                                </div>
+                                
+
+                            </div>
+
+                            <p class="fw-bold fs-6 pt-3">Giới tính</p>
+                            <div class="row g-0 main-content-page-age">
+                                <div class="col-4">
+                                    <label>
+                                        <input type="radio" name="fruit"> Nam
+                                    </label>
+                                </div>
+                                <div class="col-4">
+                                    <label>
+                                        <input type="radio" name="fruit"> Nữ
+                                    </label>
+                                </div>
+                                <div class="col-4"> 
+                                    <label>
+                                        <input type="radio" name="fruit"> Không muốn cập nhật
+                                    </label>
+                                </div>
+                            </div>
+
+                            <p class="fw-bold fs-5 pt-4 text-uppercase" style="color: #ED1C24;">Tần suất nhận tin</p>
+                            <div class="py-2 d-flex gap-1">
+                                <input type="checkbox" name="" id=""  class="form-check-input">
+                                <label for="">Mỗi ngày</label>
+                            </div>
+                            <div class="py-2 d-flex gap-1">
+                                <input type="checkbox" name="" id=""  class="form-check-input">
+                                <label for="">Nhận hết - Tôi rất cần quan tâm tin tức của báo Tuổi Trẻ</label>
+                            </div>
+                            <div class="py-2 d-flex gap-1">
+                                <input type="checkbox" name="" id=""  class="form-check-input">
+                                <label for="">Chỉ nhận các chuyên mục theo các chủ đề lựa chọn phía trên</label>
+                            </div>
+                            <div class="py-4">
+                               <input type="text" placeholder="Nhập email vào..." class="input-email" disabled>
+                            </div>
+
+                            <p>(Báo Tuổi Trẻ cam kết bảo mật thông tin bạn đọc)</p>
+                            <p>Khi nhấn <b>"Lưu lựa chọn"</b> là bạn đã đồng ý nhận thông tin & chính sách bảo mật của báo Tuổi Trẻ</p>
+
+                            <div class="text-center pb-4">
+                                <button class="btn button-save" type="button">Lưu lựa chọn</button>
+                            </div>
+                        </div>                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="container-lg mt-lg-5">
+        <div class="d-lg-flex flex-row gap-2 footer d-none d-lg-block">
+            <div class="p-2">
+                <a href="" style="color: #ED1C24 !important;">
+                    <h6>TRANG CHỦ</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>MEDIA</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>THỜI SỰ</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>THẾ GIỚI</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>PHÁP LUẬT</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>KINH DOANH</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>CÔNG NGHỆ</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>XE</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>DU LỊCH</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>NHỊP SỐNG TRẺ</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>VĂN HÓA</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>GIẢI TRÍ</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>THỂ THAO</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>GIÁO DỤC</h6>
+                </a>
+            </div>
+            <div class="p-2 bd-highlight">
+                <a href="">
+                    <h6>KHOA HỌC</h6>
+                </a>
+            </div>
+          
+        </div>
+        <div class="d-lg-flex flex-row mb-3 footer d-none d-lg-block">
+            <div class="p-2">
+                <a href="">
+                    <h6>SỨC KHỎE</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>GIẢ THẬT</h6>
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <h6>BẠN ĐỌC</h6>
+                </a>
+            </div>
+        </div>
+        <div class="ms-2 d-none d-lg-block" style="border-top: 3px solid #E30E16;"></div>
+        <div class="d-flex flex-row justify-content-between d-lg-none footer-art">
+            <div>
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/ftt.png" width="105px" height="30px">
+                </a>
+            </div>
+            <div>
+                <span>
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="1.16699" width="23" height="23" rx="11.5" stroke="#666666"></rect>
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.75984 16.9011C6.52448 16.8314 6.30973 16.7076 6.13372 16.5399C5.9577 16.3722 5.82559 16.1657 5.74851 15.9377C5.3081 14.7594 5.1776 9.83915 6.02581 8.86784C6.30811 8.55186 6.70668 8.35732 7.13501 8.32645C9.41049 8.0876 16.4408 8.11945 17.2483 8.40606C17.4754 8.47799 17.6828 8.59915 17.8552 8.76047C18.0275 8.92178 18.1602 9.11908 18.2433 9.33757C18.7245 10.5557 18.7408 14.9823 18.178 16.1527C18.0287 16.4573 17.7788 16.7041 17.4685 16.8533C16.6203 17.2673 7.88534 17.2594 6.75984 16.9011ZM10.3729 14.5922L14.4508 12.5222L10.3729 10.4363V14.5922Z" fill="#666666"></path>
+                    </svg>
+                </span>
+                <span>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="#565656"></rect>
+                        <path d="M17.6 11.8C17.6 13.1377 17.6 14.4754 17.6 15.813C17.6 16.8852 16.875 17.6 15.813 17.6C13.1377 17.6 10.4725 17.6 7.79718 17.6C6.725 17.6 6 16.875 6 15.813C6 13.1377 6 10.4725 6 7.79718C6 6.725 6.725 6 7.78697 6C10.4623 6 13.1275 6 15.8028 6C16.875 6 17.5898 6.725 17.5898 7.78697C17.6 9.12465 17.6 10.4623 17.6 11.8ZM14.8532 11.8102C14.843 10.1151 13.4644 8.75704 11.7694 8.76725C10.1049 8.77746 8.74683 10.1458 8.74683 11.8204C8.74683 13.5155 10.1254 14.8838 11.8204 14.8838C13.4951 14.8736 14.8634 13.4951 14.8532 11.8102ZM15.5373 8.76725C15.9049 8.76725 16.2113 8.46092 16.2113 8.0831C16.2113 7.70528 15.9049 7.40915 15.5373 7.40915C15.1697 7.40915 14.8634 7.71549 14.8634 8.09331C14.8634 8.46092 15.1697 8.76725 15.5373 8.76725Z" fill="#565656"></path>
+                        <path d="M9.42065 11.8323C9.42065 10.5253 10.4826 9.45312 11.7897 9.45312C13.1069 9.45312 14.1791 10.5253 14.1791 11.8426C14.1689 13.1394 13.1069 14.2014 11.7999 14.2014C10.4928 14.2014 9.42065 13.1394 9.42065 11.8323Z" fill="#565656"></path>
+                    </svg>
+                </span>
+                <span>
+                    <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0.5" y="1.16699" width="23" height="23" rx="11.5" stroke="#666666"></rect>
+                        <path d="M12.9966 12.8847H15.2299L15.5805 10.6021H12.9961V9.35462C12.9961 8.40641 13.3041 7.56559 14.1857 7.56559H15.6023V5.57366C15.3534 5.53985 14.827 5.46582 13.8323 5.46582C11.7553 5.46582 10.5375 6.5694 10.5375 9.08364V10.6021H8.40234V12.8847H10.5375V19.1584C10.9604 19.2224 11.3887 19.2658 11.8284 19.2658C12.2258 19.2658 12.6137 19.2293 12.9966 19.1772V12.8847Z" fill="#666666"></path>
+                    </svg>
+                </span>
+            </div>
+        </div>
+        <div class="d-lg-flex flex-row justify-content-between mb-lg-3 mt-3 footer">
+            <div class="p-lg-2 pt-2">
+               <p>Tổng biên tập: Lê Thế Chữ</p>
+               <p>Giấy phép hoạt động báo điện tử tiếng Việt, tiếng Anh Số 561/GP-BTTTT, cấp ngày 25-11-2022.</p>
+               <a href="">
+                <h6>Thông tin tòa soạn - Thành Đoàn TP.HCM</h6>
+               </a>
+            </div>
+            <div class="p-lg-2">
+                <p>Địa chỉ: 60A Hoàng Văn Thụ, P.9, Q.Phú Nhuận, Tp. Hồ Chí Minh</p>
+                <p>Hotline: 0918.033.133 - Email: tto@tuoitre.com.vn</p>
+                <p>Phòng Quảng Cáo Báo Tuổi Trẻ: 028.39974848</p>
+            </div>
+            <div class="">
+                <a href="">
+                    <h6>Liên Hệ Quảng Cáo</h6>
+                </a>
+                <a href="">
+                    <h6>Chính Sách Bảo Mật</h6>
+                </a>
+                <a href="">
+                    <h6>Liên Hệ Góp Ý</h6>
+                </a>
+            </div>
+        </div>
+        <div class="d-lg-flex flex-row mb-3 mx-2 gap-4 border-top d-none d-lg-block">
+            <div class="p-2">
+                <a href="">
+                   <img src="https://sso.tuoitre.vn/images/ftt.png" alt="">
+                </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/ftttv.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttpodcast.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttc.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttct.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttn.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttmedia.svg" alt="">
+                 </a>
+            </div>
+         
+            
+        </div>
+        <div class="d-lg-flex flex-row mb-3 mx-2 border-bottom d-none d-lg-block">
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fttrv.svg" alt="">
+                 </a>
+            </div>
+            <div class="p-2">
+                <a href="">
+                    <img src="https://sso.tuoitre.vn/images/fmuctim.svg" alt="">
+                 </a>
+            </div>
+        </div>
+        <div class="d-flex footer">
+            <div class="p-lg-2 flex-grow-1 bd-highlight">
+                <p>© Copyright 2023 TuoiTre Online, All rights reserved ® Tuổi Trẻ Online giữ bản quyền nội dung trên website này</p>
+            </div>
+            <div class="p-lg-2 bd-highlight d-none d-lg-block">
+                <span><i class="bi bi-youtube"></i></span>
+                <span><i class="bi bi-twitter"></i></span>
+                <span><i class="bi bi-facebook"></i></span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
